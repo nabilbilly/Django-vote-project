@@ -1,0 +1,27 @@
+{IF} statement in Django
+representation of an if statement in a block content
+
+{%block content %}
+
+>>> {% if list_latest_question %}
+
+>>> {% else %}
+
+>>> {%endif%}
+
+
+
+{%endblock%}
+
+comment of the day .
+working with view.py ; Template/index.html /header.html .
+keep track . creating a header file || setting  default html css and wrote some code. 
+using the extends block, block content ,for block-looping, if and else block, the use of {{ q.what attribute you want to call in the database}}.
+the use of the blocks.
+
+for  
+Example
+
+
+i
+

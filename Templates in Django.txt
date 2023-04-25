@@ -1,0 +1,15 @@
+Templates in Django 
+
+Basically Starting with template six operations are required:
+Create file named urls.py within voteapp.
+Create a Template folder and having an index.html file created within
+setting.py
+voteapp urls.py
+voteproject urls.py
+views.py
+
+setting.py 
+Django requires a general setting where The path of the template folder need to be introduced to settings.py.
+This is done by:  
+importing Os and introducing the path of the template.
+

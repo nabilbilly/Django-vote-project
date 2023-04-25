@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", maximum-scale="1">
+    <title>main Html</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    
+</head>
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+         <div class="sidebar_brand">
+            <h2><span class="lab"><img src="{% static 'poly-logo.png' %}" alt="logo" height="50px" width="45px"></span> <span>Campus Vote</span> </h2>
+         </div>
+          <div class="sidebar_manu">
+            <ul>
+                <li >
+                    <a href="" class="active"><span><i class="fa fa-university" aria-hidden="true" style='font-size:23px'></i></span><span>Dashbord</span> </a>
+       
+                </li>
+                <li>
+                    <a href=""><span><i class="fa fa-hand-o-right" aria-hidden="true"></i></span>  <span>Vote</span></a>
+
+                </li>
+                <li>
+                    <a href=""><span><i class="fa fa-street-view" aria-hidden="true"></i></span> <span>Vote Result</span> </a>
+
+                </li>
+                <li>
+                    <a href="#"><span><i class="fa fa-line-chart" style="font-size:20px"></i></span>   <span>Vote Chart</span></a>
+
+                </li>
+                <li>
+                    <a href="#"><span><i class="fa fa-history" aria-hidden="true"></i> </span> <span>History</span>  </a>
+
+                </li>
+
+
+            </ul>
+          </div>
+        
+    </div>
+    <div class=" main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bar"><i class="fa fa-bars" style="font-size:24px"></i></span>
+                </label>
+                Dashbord
+            </h2>
+        
+       <div class="search-wrapper">
+
+        <span><i class="fa fa-search" style="font-size:16px"></i></span>
+        <input type="search" placeholder="Search here...."/>
+        
+       </div>
+       <div class="user-wrapper">
+            <!--this is the place the use input will come-->
+          <img src="images/bg.jpg" alt="human" height="35px" width="35px">
+          <div class="">
+           <h5>Nabil Billy</h5> 
+           <small>super user</small> 
+          </div>
+        </div>
+
+       </header>
+   
+       <main>
+        <div class="row">
+            <div class="h_info">
+              {%block content%}  {%endblock%}
+            </div>
+        <!--this is where you can have all your {% blockcontent % so no code will be applied to this for now }-->
+       </main>
+    </div>
+    </div>
+</body>
+</html>

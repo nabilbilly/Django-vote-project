@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  
+    <title>Election {%block title%} {% endblock%}</title>
+    <style>
+       /* body {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            overflow-y: unset;
+         
+        }
+        .navbar {
+            margin: 0%;
+            background-color:whitesmoke ;
+            width: 100%;
+            min-height: 200%;
+    
+        }
+
+
+        .timing{
+            width: 100%;
+            height: 7vh;
+            background-color:rgb(19, 18, 18);
+            color: white;
+            margin: 0px;
+            padding: 0px;
+            display:flex;
+            justify-content: center;
+            align-items: center;   
+        }
+
+        .main{
+            width: 100%;
+            height: 14vh;
+            background: #8390A2;
+            color: white;
+            margin: 0px;
+            padding: 0px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center; 
+            justify-content: center;
+            align-items: center;
+            text-align: center; 
+        }
+        .main1 h6{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 24px;
+      }
+    a{
+      text-decoration: none;
+    }
+    #dateDiv{
+      color: aliceblue;
+      font-size: 18px;
+      
+    }
+     
+    .row{
+        width: 100%;
+        height: 100vh;
+        background:white ;
+        color: black;
+        justify-content: center;
+        display: flex;
+        text-align: center;
+      }
+      .h_info{
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        margin-top: 25px;
+        
+      }
+
+
+
+      .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.back {
+  margin-bottom: 20px;
+}
+
+.back button {
+  border: none;
+  background-color: #DD2F6E;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.back a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.back button:hover {
+  background-color: #C5275D;
+}
+
+.quest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quest p {
+  margin: 0;
+}
+
+.quest button {
+  border: none;
+  background-color: #1D2231;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.quest h5 {
+  margin: 0;
+}
+
+.quest button:hover {
+  background-color: #8390A2;
+}
+
+.voteing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voteing fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.voteing legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.voteing p {
+  margin: 0;
+}
+
+.choice-f {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.choice-f input[type="radio"] {
+  margin-right: 10px;
+}
+
+.submit input[type="submit"] {
+  border: none;
+  background-color: #DD2F6E;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+.submit input[type="submit"]:hover {
+  background-color: #C5275D;
+} */
+    </style>
+
+</head>
+<body>
+    <div class="container">
+      <div class="navbar">
+        <div class="timing">
+          <div id="dateDiv">
+    
+            <SCRIPT LANGUAGE="JavaScript">
+        
+              function showDate()
+              {
+                  var now = new Date();
+                  var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+                  var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+                  var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+                  function fourdigits(number)
+                  {
+                      return (number < 1000) ? number + 1900 : number;
+                  }
+              
+              tnow=new Date();
+              thour=now.getHours();
+              tmin=now.getMinutes();
+              tsec=now.getSeconds();
+              
+              if (tmin<=9) { tmin="0"+tmin; }
+              if (tsec<=9) { tsec="0"+tsec; }
+              if (thour<10) { thour="0"+thour; }
+              
+              today = days[now.getDay()] + ", " + date + " " + months[now.getMonth()] + ", " + (fourdigits(now.getYear())) + " - " + thour + ":" + tmin +":"+ tsec;
+              document.getElementById("dateDiv").innerHTML = today;
+              }
+              setInterval("showDate()", 1000);
+              </script>
+      
+      
+         </div>
+        </div>
+        <!--This is main header that apply all site -->
+        <div class="main">
+          <div class="main1">
+           <!-- <img src="{% static 'poly-logo.png' %}" alt="logo" height="50px" width="45px"> -->
+            <h6> </span>STUDENT POLLING STATION</span> </h6>
+          </div>
+        </div>
+
+        <!--this is where index.html layer start from-->
+        
+      
+        <div class="row">
+          <div class="h_info">
+            {%block content%}  {%endblock%}
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </div>
+</body>
+</html>

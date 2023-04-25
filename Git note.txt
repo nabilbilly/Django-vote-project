@@ -1,0 +1,5 @@
+Git note .
+ls - listing a directory
+trying to find the folder in the root.
+
+(MINGW64)

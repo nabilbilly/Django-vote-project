@@ -1,0 +1,43 @@
+{% extends 'header.html'%}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Document</title>
+</head>
+<body>
+    {%block content%}
+
+<div class="result">
+    <div class="">
+        <h1>{{ question.vote_question }} <h5>Vote Resulte</h5> </h1>
+    </div>
+
+
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <div class="vote_result">
+                <li>{{ choice.choice_field }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+            </div>
+        {% endfor %}
+    </ul>
+    <div class="return">
+        <button><a href="{% url 'vote:votes' question.id %}">Vote again?</a></button>
+        <button><a href="{% url 'vote:index' %}">Back</a></button> <br><br><br>
+    </div>
+    <div class="note">
+        <button class="quest"><h4>Note: There's a good reason why you're seeing the vote results.HTU appreciate your vote; have a good day.</h4></button>
+    </div>
+
+
+</div>
+</body>
+</html>
+{%endblock%}

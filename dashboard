@@ -1,0 +1,20 @@
+Dash board must show you pictures of all  categories of candidats in the home page (presidential and their pictures,departmental,and their picturs etc )
+must show end time and date (having counter for days and time remaining) 
+
+
+Readme file comment on project start 
+
+*starting from the Django virtualenv creation,Giving the (Virtualenv)name, activating the env using the scripts:activate:env name.
+
+*installing Django and creating django project through the django-admin by starting a project, After use "cd" to navigate to the project name and create an application using the same command.
+
+Note: make sure you have all the three folder in one folder (main folder) ;Folder which including the project,app and env file .
+
+*Create Static and Template folder in the main folder. The static folder contains all the CSS(casecading style sheet) while the Template folder contains all the HTML(HyperText Markup Language).
+
+Template file and their operations.
+index.html :
+This file is node home file which contain few lings of code as explain in the above.
+* extends an header file called the ( ) which is the main heading template .
+* block content : all code that should be included here for display and blocks must end .
+

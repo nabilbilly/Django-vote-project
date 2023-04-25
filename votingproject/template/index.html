@@ -1,0 +1,107 @@
+{% extends 'mainIndex.html'%}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0", maximum-scale="1">
+  <title>Dashbord</title>
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  
+  <title>Index</title>
+
+  
+</head>
+<body>
+ {%block content %}
+
+ {% load static %}
+  <div class="container">
+   <main>
+      <div class="cards">
+       <div class="population-info">
+          <div class="">
+            <h3>8,422,310</h3>
+            <span >Total Vote Cast</span>
+          </div>
+          <div class="">
+            <span><i class="fa fa-users" aria-hidden="true" style="font-size:24px"></i></span>
+          </div>
+       </div>
+
+       <div class="population-info">
+          <div class="">
+            <h3>5,278,007</h3>
+            <span>Remaining Vote</span>
+          </div>
+          <div class="">
+            <span><i class="fa fa-hourglass-half" style="font-size:24px"></i></span>
+          </div>
+        </div>
+
+
+        <div class="population-info">
+         <div class="">
+            <h3>13,700,317</h3>
+            <span>Total Registed</span>
+          </div>
+          <div class="">
+            <span><i class="fa fa-credit-card-alt" aria-hidden="true"  style="font-size:24px" ></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </main>   
+
+
+    <nav>
+      {% if list_latest_question %}
+        {% for question in list_latest_question %}
+          <div class="question">
+            <p>
+              <button id="Questions">
+                <h4>{{ question.vote_question }}</h4>
+                <i class="fa fa-download" style="font-size:40px;color: white;"></i>
+              </button>
+            </p>
+            <br><br>
+            <p>
+              <div class="image_show" >
+                {% for image in question.image_set.all %}
+                    <div class="image">
+                      <img src="{{ image.photo.url }}" alt="Lights" height="500px" style="width:50%">
+                      <div class="caption">
+                        <p><h4>{{ image.title }}</h4></p>
+                        <br><br>
+                      </div>
+                    </div>
+                  </div >
+                <div class="option">
+                  <button><a href="{% url 'vote:votes' question.id %}">vote now</a></button>
+                  <button><a href="{% url 'vote:display' question.id %}" class="vote_Result">Vote Results</a></button>
+                  <br><br> <br><br>
+                </div>
+                {% endfor %}
+              </div>
+            </p>
+           
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>Vote Time Exhausted</p>
+      {% endif %}
+      </nav>
+     <!--a href is going to create a link usinging the id-->
+        <!-- {% for UploadImage in question.UploadImage_set.all %}
+        <h3>Succesfully uploaded : {{ UploadImage.caption}}</h3>  
+        <img src="{{UploadImage.image.url}}" alt="connect" style="max-height:300px">  
+        {%endfor%} -->
+ 
+  <div>
+</body>
+</html>
+{%endblock%}

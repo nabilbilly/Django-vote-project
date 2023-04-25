@@ -1,0 +1,93 @@
+cd desktop\djangovote
+
+votevn\scripts\activate
+
+cd votingproject
+
+py manage.py runserver 8080
+
+
+
+Database :
+consider 2 tables. Questions,choice  
+
+working with models.py
+*from django.db import models
+
+create classes which should control the models of how your dater base will look like ;
+like this 
+
+class Question(models.Model):
+    vote_question= models.CharField(max_length=300)
+    vote_date= models.DateTimeField('published date')
+
+    def __str__(self):
+        return  self.vote_question
+
+which best explain how the Entity type "Question" and it attribute "vote_question" "vote_date" shows in the database.
+
+After all neccesory models are considered.
+make migration  and migrate using this command
+
+$ py manage.py makemigrations
+$py manage.py migrate 
+
+How to insert data into the database using shell
+
+$ py manage.py shell
+
+(votevn) C:\Users\Administrator\Desktop\djangovote\votingproject>py manage.py shell
+Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from voteapp.models import Question,choice
+>>> Question.objects.all()
+<QuerySet []>
+>>> from django.utils import timezone
+>>> q=Question(vote_question="Presidential Vote. PLEASE YOU CAN ONLY VOTE ONCE!",vote_date=timezone.now())
+>>> q.save
+<bound method Model.save of <Question: Presidential Vote. PLEASE YOU CAN ONLY VOTE ONCE!>>
+>>> q.save()
+>>> q.vote_question
+'Presidential Vote. PLEASE YOU CAN ONLY VOTE ONCE!'
+>>> Question.objects.all()
+<QuerySet [<Question: Presidential Vote. PLEASE YOU CAN ONLY VOTE ONCE!>]>
+>>> q=Question.objects.get(pk=1)
+>>> q.choice_set.all()
+<QuerySet []>
+>>> q.choice_set.create(choice_field="PAA KWASI",votes=0)
+<choice: PAA KWASI>
+>>> q.choice_set.create(choice_field="CALEB",votes=0)
+<choice: CALEB>
+>>> q.choice_set.create(choice_field="CLEMENT AMARTEY",votes=0)
+<choice: CLEMENT AMARTEY>
+>>> q.choice_set.all()
+<QuerySet [<choice: PAA KWASI>, <choice: CALEB>, <choice: CLEMENT AMARTEY>]>
+
+>>> quit()
+
+
+Changing the Header Title of an admin Page:
+using the admin.py:
+code:
+>>>admin.site.site_index_title= "Ho Technical University Admin Dashbord"
+>>>admin.site.site_title= "Ho Technical University Election"
+>>>admin.site.site_header= "HEY! Welcome To Ho Technical University Vote Site"
+
+
+
+online Resourese 
+
+ChatGPT    ----->https://opchatgpt.com/chat/  or https://openai.com/blog/chatgpt
+Django ecommerce site ------> https://data-flair.training/blogs/python-online-shopping-system/
+best uploading photo --------> https://www.section.io/engineering-education/an-extensive-guide-on-handling-images-in-django/
+Almighty Google--------> www.Google.com
+The greatest Youtube ------------> Youtube.com 
+Bing 
+
+
+
+
+
+
+

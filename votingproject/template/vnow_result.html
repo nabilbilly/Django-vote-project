@@ -1,0 +1,72 @@
+<!--You are here to shaow the result of how the vote is going to the user -->
+
+{%extends 'header.html'%}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Voting</title>
+</head>
+<body>
+    {%block content%}
+
+   
+<!-- how you can navigate backwards-->
+    <div class="container">
+        <div class="back">
+            <button><a href="{% url 'vote:index' %}" class="back">Back</a></button>
+        </div>
+
+        <div class="quest">
+         {% for Question in list_latest_question %}
+            {%endfor%}
+
+            <p clas="question-vote">
+                <button><h5> {{ question.vote_question }} </h5>
+            </p>
+
+            <p>
+            <!--if there is an error with the page question reload just display the error message-->
+                {% if error_message %}
+                <strong>{{ error_message}}</strong>   
+                {%endif%}
+            </p>
+            </button>
+
+        </div>
+        <div class="voteing">
+            <form action="{% url 'vote:votes' question.id %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend><h1>{{ question.vote_question }}</h1></legend>
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                        {% for choice in question.choice_set.all %}
+                        <div class="choice-f">
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            <label for="choice{{ forloop.counter }}">{{ choice.choice_field }}</label><br>
+                        </div>
+                            {% endfor %}
+           
+                </fieldset>
+                <div class="submit">
+                  <input type="submit" value="Vote">
+                </div>
+            </form>
+
+    </div>
+ </div>       
+     
+   
+    
+
+
+</body>
+</html>
+{%endblock%}
