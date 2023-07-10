@@ -1,6 +1,6 @@
 Templates in Django 
 
-Basically Starting with template six operations are required:
+Basically Starting with template , six operations are required:
 Create file named urls.py within voteapp.
 Create a Template folder and having an index.html file created within
 setting.py

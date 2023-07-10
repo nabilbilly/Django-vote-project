@@ -5,7 +5,7 @@ admin.site.site_title= "Ho Technical University Election"
 admin.site.site_header= "HEY! Welcome To Ho Technical University Vote Site"
 
 # Register your models here.
-from.models import Question,choice,name,Image
+from.models import Question,choice,name,Image,UsersDetail
 # UploadImage
 #in other to have the multiple choices field to the Question we will use "tabularline" to make the choices Inline and also you must specify the models which would be inline ,like this
 #extra means the multiple choices field .
@@ -60,6 +60,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(UsersDetail)
 admin.site.register(name)
 # admin.site.register(UploadImage)
 

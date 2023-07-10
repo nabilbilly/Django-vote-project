@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How to Make a Popup</title>
+  <link rel="stylesheet" href="{% static 'bing.css' %}">
+  
+  <script defer src="{% static 'app.js' %}"></script>
+  
+</head>
+<body>
+
+<div class="container">
+  {% comment %} <input type="submit" class="input" value="vote again?" onclick="openPopup()"> {% endcomment %}
+  <div class="popup" id="popup">
+    <img src="{% static 'image/vote.jpg' %}" alt="">
+    <h2>Thank You!</h2>
+    <p>Your Vote has been Succesfully Submitted.</p>
+       
+    <p></p>
+
+    <button class="input"><a href="{% url 'vote:index' %}">Proceed</a></button> 
+  <!--  <button class="input"><a href="{% url 'vote:votes' question_id='2' %}">Proceed</a></button>    you are very important  -->
+   
+  </div> 
+
+</div>
+
+</body>
+</html>

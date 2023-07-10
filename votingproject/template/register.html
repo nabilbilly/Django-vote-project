@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href={% static "./resources/Logo_Worldskills_Ghana.png" %} type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'login1.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    
+        <!-- Headings for the form -->
+        <div class="headingsContainer">
+            <h3>Campus Vote</h3>
+            <p>Sign Up, Be sure of your datails before submission</p>
+            {% for message in messages %}
+            <p style="color: black; font-weight: 700; font-size: 15px;">{{message}}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Main container for all inputs -->
+        <div class="mainContainer">
+            <!-- Username -->
+            <form method="post">
+            {% csrf_token %}
+            <label >First Name</label>
+            <input type="text" placeholder="First Name" name="fname">
+
+            <br><br>
+            <label >Last Name</label>
+            <input type="text" placeholder="Surname" name="lname">
+
+            <br><br>
+
+            <label >Student ID</label>
+            <input type="text" placeholder="ID Number" name="sid" required>
+
+            <br><br>
+
+            <label for="">Department</label>
+            <input type="text" placeholder="Class" name="class"><br>
+
+            <br><br>
+
+            <input type="radio" value="M" name="gender">
+            <label for="gender">Male</label>
+            <input type="radio" value="F" name="gender">
+            <label for="gender">Female</label>
+
+            <br><br>
+
+            <label for="">Birth Date</label>
+            <input type="date" placeholder="Birth Date" name="bday">
+
+            <br><br>
+            <label for="">Birth Town</label>
+            <input type="text" placeholder="Home Town" name="htown">
+
+            <br><br>
+
+            <label > password</label>
+            <input type="password" placeholder="Password" name="password" required>
+            
+            <br><br>
+            <label >Confirm password</label>
+            <input type="password" placeholder="confirm password" name="cpassword" required>
+            
+            <!-- Password -->
+            
+
+            <!-- sub container for the checkbox and forgot password link -->
+            <div class="subcontainer">
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+               
+            </div>
+
+
+            <!-- Submit button -->
+            <input type="submit" value="Submit"  class="button">
+
+            <!-- Sign up link -->
+            <div class="link">
+                <p class="register"><a href="/"> login</a></p>
+            </div>
+            
+
+        </div>
+
+    </form>
+
+
+
+
+
+
+
+    {% comment %} <main>
+        {% for message in messages %}
+        <p style="color: black; font-weight: 700; font-size: 15px;">{{message}}</p>
+        {% endfor %}
+       <form method="post">
+        {% csrf_token %}
+        <img src={% static "./resources/Logo_Worldskills_Ghana.png" %} alt="logo">
+        <h1>REGISTER</h1>
+        <input type="text" placeholder="First Name" name="fname"><br>
+        <input type="text" placeholder="Surname" name="lname"><br>
+        <input type="radio" value="M" name="gender">
+        <label for="gender">Male</label>
+        <input type="radio" value="F" name="gender">
+        <label for="gender">Female</label><br>
+        <input type="text" placeholder="Birth Town" name="btown"><br>
+        <input type="date" placeholder="Birth Date" name="bday"><br>
+        <input type="text" placeholder="Home Town" name="htown"><br>
+        <input type="text" placeholder="Street" name="street"><br>
+        <input type="text" placeholder="Class" name="class"><br>
+        <!-- <input type="text" placeholder="Position" name="position"><br> -->
+        <input type="password" placeholder="Password" name="password" required><br>
+        <input type="password" placeholder="confirm password" name="cpassword" required><br>
+        <input type="submit" value="Submit">
+
+        <div class="link">
+            <p>Have an account?  <a href="/"> login</a></p>
+        </div>
+       </form>
+    </main> {% endcomment %}
+</body>
+</html>

@@ -27,6 +27,21 @@ class Image(models.Model):
     title = models.CharField(max_length=20)
     photo = models.ImageField(upload_to='pics')
 
+
+class UsersDetail(models.Model):
+    # question= models.ForeignKey(Question,on_delete=models.CASCADE,default=0)
+    Name = models.TextField()
+    Gender = models.CharField(max_length=2)
+    Student_id = models.IntegerField(default=0)
+    birth_date = models.CharField(max_length=255)
+    Street = models.TextField()
+    Hometown = models.TextField()
+    Class = models.TextField()
+    start_date = models.DateField()
+    position = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.Name
 # class UploadImage(models.Model):  
 #     question= models.ForeignKey(Question,on_delete=models.CASCADE)
 #     caption = models.CharField(max_length=200)  
